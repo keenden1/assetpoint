@@ -1,0 +1,275 @@
+/* Custom application styles (loaded after Bootstrap). */
+
+:root {
+    --bs-border-radius: .55rem;
+    --bs-border-radius-sm: .45rem;
+    --bs-border-radius-lg: .8rem;
+}
+
+/* Light theme only — in dark mode Bootstrap's own --bs-body-bg takes over. */
+[data-bs-theme="light"] body {
+    background-color: #f4f5f8;
+}
+
+.auth-wrapper {
+    min-height: 100vh;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 28rem;
+}
+
+.brand {
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+}
+
+/* ===== App shell ===== */
+
+.brand-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: .5rem;
+    background: var(--bs-body-color);
+    color: var(--bs-body-bg);
+    font-weight: 700;
+    font-size: .95rem;
+}
+
+.brand-logo {
+    width: 2rem;
+    height: 2rem;
+    border-radius: .5rem;
+    object-fit: cover;
+}
+
+.brand-logo-lg {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: .65rem;
+}
+
+.nav-pill {
+    border-radius: .55rem;
+    padding: .4rem .8rem;
+    font-weight: 500;
+    font-size: .925rem;
+    color: var(--bs-secondary-color);
+    text-decoration: none;
+    transition: background-color .15s ease, color .15s ease;
+    white-space: nowrap;
+}
+
+.nav-pill:hover {
+    background: var(--bs-secondary-bg);
+    color: var(--bs-body-color);
+}
+
+.nav-pill.active {
+    background: var(--bs-primary-bg-subtle);
+    color: var(--bs-primary-text-emphasis);
+}
+
+/* Hamburger that morphs into an X when the menu is open. */
+.navbar-toggler.nav-burger {
+    border: 0;
+    padding: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.navbar-toggler.nav-burger:focus {
+    box-shadow: none;
+}
+
+.nav-burger-bar {
+    display: block;
+    width: 1.375rem;
+    height: 2px;
+    border-radius: 1px;
+    background: var(--bs-body-color);
+    transition: transform .25s ease, opacity .2s ease;
+}
+
+.navbar-toggler.nav-burger:not(.collapsed) .nav-burger-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.navbar-toggler.nav-burger:not(.collapsed) .nav-burger-bar:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar-toggler.nav-burger:not(.collapsed) .nav-burger-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Our display:inline-flex above outranks Bootstrap's desktop hide — re-hide it. */
+@media (min-width: 992px) {
+    .navbar-toggler.nav-burger {
+        display: none;
+    }
+}
+
+/* Mobile: overlay the collapsed menu instead of pushing the page down.
+   The navbar is sticky (positioned), so the absolute menu anchors to it. */
+@media (max-width: 991.98px) {
+    .navbar .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bs-body-bg);
+        border-bottom: 1px solid var(--bs-border-color-translucent);
+        box-shadow: 0 14px 24px -14px rgba(0, 0, 0, .3);
+        padding: .5rem 1rem 1rem;
+    }
+}
+
+/* ===== Cards ===== */
+
+.card-elevated {
+    border: 1px solid var(--bs-border-color-translucent);
+    border-radius: 1rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .05), 0 10px 30px -18px rgba(0, 0, 0, .25);
+}
+
+[data-bs-theme="dark"] .card-elevated {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 10px 30px -18px rgba(0, 0, 0, .7);
+}
+
+.card-elevated > .card-header:first-child {
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+}
+
+.card-elevated > .card-footer:last-child {
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+}
+
+.card-hover {
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .06), 0 14px 34px -16px rgba(0, 0, 0, .3);
+}
+
+.stat-icon {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: .75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+/* Cancels the <main> top padding on the guest landing hero. */
+.hero-pull-up {
+    margin-top: -1.5rem;
+}
+
+@media (min-width: 992px) {
+    .hero-pull-up {
+        margin-top: -3rem;
+    }
+}
+
+/* ===== Page headers ===== */
+
+.page-title {
+    letter-spacing: -.02em;
+}
+
+.page-sub {
+    color: var(--bs-secondary-color);
+    font-size: .9rem;
+}
+
+/* ===== Tables ===== */
+
+.table-app thead th {
+    font-size: .72rem;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    font-weight: 600;
+    color: var(--bs-secondary-color);
+    background-color: var(--bs-tertiary-bg);
+    padding-top: .7rem;
+    padding-bottom: .7rem;
+    white-space: nowrap;
+}
+
+/* ===== Small uppercase inline labels (B.O toolbar) ===== */
+
+.label-caps {
+    font-size: .72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--bs-secondary-color);
+}
+
+/* ===== Empty states ===== */
+
+.empty-state {
+    padding: 2.5rem 1rem;
+    text-align: center;
+    color: var(--bs-secondary-color);
+}
+
+.empty-state .icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: var(--bs-tertiary-bg);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    margin-bottom: .75rem;
+}
+
+/* ===== Archived records: muted so they read as inactive ===== */
+
+.row-archived > td {
+    background-color: var(--bs-tertiary-bg);
+    color: var(--bs-secondary-color);
+}
+
+.row-archived .fw-medium,
+.row-archived .fw-semibold {
+    color: var(--bs-secondary-color);
+}
+
+.row-archived .badge {
+    filter: grayscale(1);
+    opacity: .75;
+}
+
+/* ===== B.O pricelist ===== */
+
+#pl-body .pl-product {
+    cursor: pointer;
+}
+
+#pl-body .pl-product:hover td {
+    background-color: var(--bs-primary-bg-subtle);
+}
+
+#pl-body .pl-category td {
+    background-color: var(--bs-tertiary-bg);
+}

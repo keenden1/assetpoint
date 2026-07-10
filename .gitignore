@@ -1,0 +1,56 @@
+# ===== Environment & secrets =====
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+*.cert
+*.ppk
+secrets.*
+credentials.*
+/auth.json
+/storage/*.key
+
+# ===== Laravel =====
+/vendor
+/storage/pail
+/public/build
+/public/hot
+/public/storage
+.phpunit.result.cache
+/.phpunit.cache
+*.log
+
+# ===== Local database =====
+/database/*.sqlite
+/database/*.sqlite-journal
+
+# ===== Frontend tooling (none used, but harmless) =====
+/node_modules
+/public/fonts-manifest.dev.json
+
+# ===== Local notes & screenshots =====
+/zz
+*.md
+
+# ===== IDEs & editors =====
+/.idea
+/.vscode
+/.zed
+/.nova
+/.cursor/
+/.codex
+/.claude/settings.local.json
+.phpactor.json
+_ide_helper.php
+
+# ===== OS junk =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== Legacy / misc =====
+Homestead.json
+Homestead.yaml
